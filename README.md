@@ -8,6 +8,11 @@ What's in the repo so far:
 Coming soon:
 - GST late fusion model (convnet + LSTM).
 
+
+<img src="http://sor3d.vcl.iti.gr/wp-content/uploads/2017/07/gtm3.png" width="800">
+
+Slow multi-level fusion is the (d) model.
+
 Bibtex:
 ```
 @InProceedings{Thermos_2017_CVPR,
@@ -38,7 +43,12 @@ The data are organised in train, validation and test set. We just use a simple c
 
 Object sample:
 
-Accumulated 3D flow magnitude (affordance) sample:
+<img src="http://sor3d.vcl.iti.gr/wp-content/uploads/2017/03/4.png" width="200">
+
+Accumulated 3D flow magnitude (affordance) samples:
+
+<img src="http://sor3d.vcl.iti.gr/wp-content/uploads/2017/07/magn.png" width="400">
+
 
 ### Pretrained model
 
