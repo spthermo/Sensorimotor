@@ -19,10 +19,14 @@ year = {2017}
 }
 ```
 
+
+
 ## Prerequisites
 - [Torch](http://torch.ch/)
 - CuDNN (5.1.10)
 - [loadcaffe](https://github.com/szagoruyko/loadcaffe)
+
+
 
 ## Experiments
 
@@ -40,6 +44,7 @@ Accumulated 3D flow magnitude (affordance) sample:
 
 We use [VGG ILSVRC-2014 16-layer](https://gist.github.com/ksimonyan/211839e770f7b538e2d8) backed with loadcaffe (thanks [szagoruyko](https://github.com/szagoruyko)) as base model.
 
+
 ### Baseline
 
 The training scripts have several options which can be listed by running the script with the flag --help
@@ -53,6 +58,7 @@ To test the baseline model, run the test_baseline.lua script. Add the path to th
 `qlua test_baseline.lua -appearanceSamplesPath [path to object data/test/] -loadNet [path to saved model directory]`
 
 we use 'xlua' in order to visualize the confusion matrix.
+
 
 ### Slow Multi-level Fusion (SML)
 
