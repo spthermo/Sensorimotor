@@ -69,7 +69,7 @@ criterion = nn.ClassNLLCriterion()
 criterion:cuda()
 
 --Mean & Std of SOR3D processed data
-local meanstdApp = {mean = {0.016,0.01, 0}, std = {0.0423, 0.0284, 0}}
+local meanstdApp = {mean = {0.0174,0.0112, 0}, std = {0.1283, 0.0934, 0}}
 
 --GPU inputs (preallocate)
 local inputsCudaAppearance = torch.CudaTensor()
