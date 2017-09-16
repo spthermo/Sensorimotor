@@ -8,6 +8,11 @@ What's in the repo so far:
 Coming soon:
 - GST late fusion model (convnet + LSTM).
 
+
+<img src="http://sor3d.vcl.iti.gr/wp-content/uploads/2017/07/gtm3.png" width="800">
+
+Slow multi-level fusion is the (d) model.
+
 Bibtex:
 ```
 @InProceedings{Thermos_2017_CVPR,
@@ -19,10 +24,14 @@ year = {2017}
 }
 ```
 
+
+
 ## Prerequisites
 - [Torch](http://torch.ch/)
 - CuDNN (5.1.10)
 - [loadcaffe](https://github.com/szagoruyko/loadcaffe)
+
+
 
 ## Experiments
 
@@ -34,11 +43,17 @@ The data are organised in train, validation and test set. We just use a simple c
 
 Object sample:
 
-Accumulated 3D flow magnitude (affordance) sample:
+<img src="http://sor3d.vcl.iti.gr/wp-content/uploads/2017/03/4.png" width="200">
+
+Accumulated 3D flow magnitude (affordance) samples:
+
+<img src="http://sor3d.vcl.iti.gr/wp-content/uploads/2017/07/magn.png" width="400">
+
 
 ### Pretrained model
 
 We use [VGG ILSVRC-2014 16-layer](https://gist.github.com/ksimonyan/211839e770f7b538e2d8) backed with loadcaffe (thanks [szagoruyko](https://github.com/szagoruyko)) as base model.
+
 
 ### Baseline
 
@@ -53,6 +68,7 @@ To test the baseline model, run the test_baseline.lua script. Add the path to th
 `qlua test_baseline.lua -appearanceSamplesPath [path to object data/test/] -loadNet [path to saved model directory]`
 
 we use 'xlua' in order to visualize the confusion matrix.
+
 
 ### Slow Multi-level Fusion (SML)
 
