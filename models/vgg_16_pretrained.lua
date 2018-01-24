@@ -1,6 +1,6 @@
 require 'loadcaffe'
 
-function createModel(nGPU)
+function createModel(nGPU,backend)
    if not paths.dirp('models/VGG_16') then
       print('=> Downloading VGG ILSVRC-2014 16-layer model weights')
      os.execute('mkdir models/VGG_16')
@@ -13,11 +13,11 @@ function createModel(nGPU)
    local proto      = 'models/VGG_16/deploy.prototxt'
    local caffemodel = 'models/VGG_16/VGG_ILSVRC_16_layers.caffemodel'
    
-   if opt.backend == 'cudnn' then
+   if backend == 'cudnn' then
       pretrain = loadcaffe.load(proto, caffemodel, 'cudnn')   
-   elseif opt.backend == 'cunn' then
+   elseif backend == 'cunn' then
       pretrain = loadcaffe.load(proto, caffemodel, 'cunn')   
-   elseif opt.backend == 'cnn2' then
+   elseif backend == 'cnn2' then
       pretrain = loadcaffe.load(proto, caffemodel, 'cnn2')
    else
       print 'not supported module'
