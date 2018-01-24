@@ -57,30 +57,21 @@ We use [VGG ILSVRC-2014 16-layer](https://gist.github.com/ksimonyan/211839e770f7
 
 ### Baseline
 
-The training scripts have several options which can be listed by running the script with the flag --help
+To train the baseline (appearance) model, edit the `train.sh` script (add train_baseline). Edit the path to appearance data (train, val) in the script.
 
-To train the baseline (appearance) model, simply run the train_baseline.lua script. By default 1-GPU VGG-16 with CuDNN backend.
+To test the baseline model, run the edit the `test.sh` script (add test_baseline). Edit the paths to appearance data (test) and best saved model in the script.
 
-`th train_baseline.lua -appearanceSamplesPath [path to object data/train/]`
-
-To test the baseline model, run the test_baseline.lua script. Add the path to the directory that your trained model is saved.
-
-`qlua test_baseline.lua -appearanceSamplesPath [path to object data/test/] -loadNet [path to saved model directory]`
-
-we use 'xlua' in order to visualize the confusion matrix.
+xlua is used for confusion matrix visualization.
 
 
 ### Slow Multi-level Fusion (SML)
 
-The training scripts have several options which can be listed by running the script with the flag --help
+To train the SML model, run the `train.sh` script. Edit the path to appearance/affordance data (train, val) in the script.
 
-To train the SML model, simply run the train_sml.lua script. By default 1-GPU VGG-16 with CuDNN backend.
+To test the SML model, run the `test.sh` script. Edit the paths to appearance/affordance data (test) and best saved model in the script.
 
-`th train_sml.lua -appearanceSamplesPath [path to object data/train/] -affordanceSamplesPath [path to hand data/train/]`
+xlua is used for confusion matrix visualization.
 
-To test the SML model, run the test_sml.lua script. Add the path to the directory that your trained model is saved.
+### Curves & Stuff
 
-`qlua test_sml.lua -appearanceSamplesPath [path to object data/test/] -affordanceSamplesPath [path to hand data/train/] -loadNet [path to saved model directory]`
-
-we use 'xlua' in order to visualize the confusion matrix.
-
+The log file created during training can be visualized using the jupyter notebook as in this [repo](https://github.com/szagoruyko/wide-residual-networks/tree/master/notebooks)
