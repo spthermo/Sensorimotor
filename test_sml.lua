@@ -10,8 +10,8 @@ require 'nngraph'
 
 local opt = {
 	loadNet = 'path/to/saved/best/model',
-	affordance_sample_pathsPath = 'path/to/affordance/samples',
-	appearance_sample_pathsPath = 'path/to/appearance/samples',
+	affordance_sample_paths = 'path/to/affordance/samples',
+	appearance_sample_paths = 'path/to/appearance/samples',
 	GPU = 1,
 	nGPU = 1,
 	backend = 'cudnn',
@@ -64,8 +64,8 @@ end
 
 --load test data, all variables are global
 function load_test_set()
-	path1_test = opt.affordance_sample_pathsPath..'/test/'
-	path2_test = opt.appearance_sample_pathsPath..'/test/'
+	path1_test = opt.affordance_sample_paths..'/test/'
+	path2_test = opt.appearance_sample_paths..'/test/'
 	classes_test = paths.dir(path1_test)
 	table.sort(classes_test,function(a,b)return a<b end)
 	table.remove(classes_test,1) table.remove(classes_test,1)
@@ -147,7 +147,7 @@ function test()
 			appearance_batch[j]:copy(app)
 			gt[j] = rand_cls
 		end
-		Forward(affordance_batch, appearance_batch, gt, false)
+		forward_batch(affordance_batch, appearance_batch, gt, false)
 	end
 	--prepare the last batch
 	for j=1, opt.batchSize do
@@ -199,7 +199,7 @@ function forward_batch(affordance_cpu, appearance_cpu, gt_cpu)
 end
 
 --print class names
-path = opt.appearance_sample_pathsPath..'/test/'
+path = opt.appearance_sample_paths..'/test/'
 classes = paths.dir(path)
 table.sort(classes,function(a,b)return a<b end)
 table.remove(classes,1) table.remove(classes,1)

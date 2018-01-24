@@ -11,8 +11,8 @@ local json = require 'cjson'
 
 local opt = {
     save = 'logs/',
-    affordance_sample_pathsPath = 'path/to/affordance/samples',
-    appearance_sample_pathsPath = 'path/to/appearance/samples',
+    affordance_sample_paths = 'path/to/affordance/samples',
+    appearance_sample_paths = 'path/to/appearance/samples',
     GPU = 1,
     nGPU = 1,
     backend = 'cudnn',
@@ -211,8 +211,8 @@ end
 
 --load training data, all variables are global
 function load_train_set()
-    path1 = opt.affordance_sample_pathsPath..'/train/'
-    path2 = opt.appearance_sample_pathsPath..'/train/'
+    path1 = opt.affordance_sample_paths..'/train/'
+    path2 = opt.appearance_sample_paths..'/train/'
     classes = paths.dir(path1)
     table.sort(classes,function(a,b)return a<b end)
     table.remove(classes,1) table.remove(classes,1)
@@ -252,8 +252,8 @@ end
 
 --load validation data, all variables are global
 function load_val_set()
-    path1_val = opt.affordance_sample_pathsPath..'/val/'
-    path2_val = opt.appearance_sample_pathsPath..'/val/'
+    path1_val = opt.affordance_sample_paths..'/val/'
+    path2_val = opt.appearance_sample_paths..'/val/'
     classes_val = paths.dir(path1_val)
     table.sort(classes_val,function(a,b)return a<b end)
     table.remove(classes_val,1) table.remove(classes_val,1)
@@ -471,7 +471,7 @@ function forward_batch(affordance_cpu, appearance_cpu, gt_cpu, epoch, trainFlag)
 end
 
 --print class names
-path = opt.appearance_sample_pathsPath..'/train/'
+path = opt.appearance_sample_paths..'/train/'
 classes = paths.dir(path)
 table.sort(classes,function(a,b)return a<b end)
 table.remove(classes,1) table.remove(classes,1)
