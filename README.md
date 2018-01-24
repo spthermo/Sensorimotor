@@ -5,8 +5,8 @@ What's in the repo so far:
 - The baseline object appearance model.
 - The GTM slow multi-level fusion model that fuses object appearance with the corresponding accumulated 3D flow magnitude.
 
-Coming soon:
-- GST late fusion model (convnet + LSTM).
+To do:
+- use a better spatiotemporal architecture (maybe c3d).
 
 
 <img src="http://sor3d.vcl.iti.gr/wp-content/uploads/2017/07/gtm3.png" width="800">
